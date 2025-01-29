@@ -155,7 +155,7 @@ Click the button below to get started, it'll only take you a minute. <br>
             if (quizQuestion === "Do you have coverage for your car right now?") {
                 quizQuestion = "How many cars do you have?";
                 quizText.textContent = quizQuestion;
-                updateURL('currently_insured', 'Yes')
+                updateURL('insured', 'Yes')
                 setsecondQuestion();
                 smoothScrollToTop(1000,432);
             } else if(quizQuestion === "How many cars do you have?"){
@@ -174,7 +174,7 @@ Click the button below to get started, it'll only take you a minute. <br>
             if (quizQuestion === "Do you have coverage for your car right now?") {
                 quizQuestion = "How many cars do you have?";
                 quizText.textContent = quizQuestion;
-                updateURL('currently_insured', 'No');
+                updateURL('insured', 'No');
                 setsecondQuestion();
                 smoothScrollToTop(1000,632);
             }else if(quizQuestion === "How many cars do you have?"){
