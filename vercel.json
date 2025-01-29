@@ -11,7 +11,7 @@
    
       {
         "source": "/engauto1",
-        "destination": "/secondpath/engauto1.html"
+        "destination": "/secondpath/index.html"
        
       }
     ]
