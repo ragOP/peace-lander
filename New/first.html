@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benefits For Elderly</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/react-toastify/8.2.0/ReactToastify.min.css" />
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+
+<script src="https://b-js.ringba.com/CAfdb7eb5bdaa24fb8a155f293ece397ae" async></script>
+   
+   
+<!-- ddd -->
+</head>
+<body>
+
+
+
+
+
+
+
+    
+    <div>
+        <div style="margin-bottom: 4px; font-family: Arial, Helvetica, sans-serif;" class="top-sticky-blue-test2" id="top">
+            Affordable Insurance
+        </div>
+
+        <!-- Step messages will be displayed here when needed -->
+        <div class="checking hidden" style="font-weight: 700;" id="status">
+            <span id="statusMessage"></span>
+        </div>
+
+        <!-- Main content of the survey -->
+        <div class="main-container-5" id="mainContent">
+            <div class="main-descrition-5-5">
+                <p>
+                    <span style="color: red">Warning:</span> Enrollment closes on
+                    <span id="currentDate">Wednesday, 01/29/2025</span> at midnight.
+                </p>
+                <div class="main-des-title-6-7" >
+                    <b> 
+                        Ending Soon: Save Up to <span style="background-color: rgb(255, 195, 0);">$610 a Year</span> on Your Car. See If You Qualify in 60 Seconds!
+                        <!-- <p style="text-align: center; margin-top: 10px;">Coverage starting as low as $38 a Month—Quick, Easy, No Hassle!</p> -->
+                </div>
+                <img class="topic-img-middle-z" src="./car.jpg" alt="head" />
+                <div style="margin-top: 14px;" class="main-des-5">
+                    Millions of drivers are discovering they've been overpaying their car insurance by hundreds every single year. <br>
+
+The truth? You could save up to $610 a year. <br>
+
+Just answer a few simple questions to find out if you qualify to get auto insurance for as low as $38 a month. <br>
+
+It's fast, it's easy, and there are no obligations or hidden fees. <br>
+
+Click the button below to get started, it'll only take you a minute. <br>
+
+
+
+<br/><br/>    
+             
+                </div>
+                 <div class="main-des-55" style="margin-top: -5px;">
+                    Simply answer the questions below and claim your benefit while you still can!</b> 
+                </div> 
+            </div>
+
+            <div class="survey">
+                <div class="quiz-5" id="btn">
+                    <span id="quizQuestion">Do you have coverage for your car right now?</span>
+                </div>
+                <div class="answer" id="answerOptions">
+                    <div class="answer-btn-5" onclick="handleQuizP()">YES</div>
+                    <div class="answer-btn-5" onclick="handleQuizN()">NO</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Congratulations message -->
+        <div class="checking hidden" id="congratulations">
+            <div class="congrats">Congratulations, You Qualify!</div>
+            <div class="top-description-5">
+                Make A <b>Quick Call</b> To Claim Your $610 Benefit!
+            </div>
+            <div class="spots-count">Spots remaining: 4</div>
+            <!-- <div class="tap-direction">👇 TAP BELOW TO CALL 👇</div> -->
+            <div class="call-btn" onclick="handleCall()">
+                <a href="tel:+13214858035">             <div className="call-btn" onClick={handleCall}>            CALL (321) 485-8035
+                </div>           </a>
+            </div>
+            <!-- <div class="sub-description">
+                Make sure to ask for medicare benefit for your area in order to receive the <b>Highest Possible Allowance.</b>
+            </div> -->
+            <!-- <div class="sub-title">We Have Reserved Your Spot</div> -->
+            <div class="sub-description">
+                Due to high call volume, your official agent is waiting for only <b>3 minutes</b>, then your spot will not be reserved.
+            </div>
+            <div class="timer">
+                <div class="timer-cell" id="minutes">3</div>
+                <div class="timer-cell">:</div>
+                <div class="timer-cell" id="seconds">00</div>
+            </div>
+        </div>
+
+        <div class="footer2">
+            <!-- <p>We represent Medicare Advantage HMO, PPO and PFFS organizations and stand-alone PDP prescription drug plans that are contracted with Medicare. Enrollment depends on the plan’s contract renewal."
+            </p>
+            <p>Not all plans offer all of these benefits. Benefits may vary by carrier and location. Limitations and exclusions may apply.
+            </p>
+            <p>Enrollment in Medicare/Medicare Advantage may be limited to certain times of the year unless you qualify for a Special Enrollment Period
+
+            </p>
+            <p>americansbenefitschecker.com is not connected with or endorsed by the US government or Federal Medicare program. This website is a solicitation for insurance and Medicare Advantage, Part D or Medicare supplement insurance comparison services. Medicare supplement insurance is available to those age 65 or older enrolled in Medicare Parts A and B, and in some states to those under age 65 eligible to Medicare due to disability or end stage renal disease.
+            </p>
+            <p>We do not offer every plan available in your area. Currently we represent [insert number of organizations] organizations which offer [insert number of plans] products in your area. Please contact Medicare.gov, 1–800–MEDICARE, or your local State Health Insurance Program (SHIP) to get information on all of your options.</p> -->
+            <div class="terms2">
+                <a href="/terms.html">Terms & Conditions</a> | 
+                <a href="/privacy.html">Privacy Policy</a>
+            </div>
+            <div style="width: 100%; height: 0.2px; background-color: black; margin-top: 15px;"></div>
+
+            <div class="copyright">
+                <!-- <p>G2 Licensed Agent : Gregory K. Teipelz</p>         -->
+                </div>
+        </div>
+    </div>
+
+    <script>
+        let step = "process";
+        let quizQuestion = "Do you have coverage for your car right now?";
+        const statusDiv = document.getElementById("status");
+        const statusMessage = document.getElementById("statusMessage");
+        const congratulationsDiv = document.getElementById("congratulations");
+        const quizText = document.getElementById("quizQuestion");
+        const answerOptions = document.getElementById("answerOptions");
+        const minutesEl = document.getElementById("minutes");
+        const secondsEl = document.getElementById("seconds");
+
+        function handleQuizP() {
+            if (quizQuestion === "Do you have coverage for your car right now?") {
+                quizQuestion = "How many cars do you have?";
+                quizText.textContent = quizQuestion;
+                updateURL('currently_insured', 'Yes')
+                setsecondQuestion();
+                smoothScrollToTop(1000,432);
+            } else if(quizQuestion === "How many cars do you have?"){
+                quizQuestion = "Do you own your home?";
+                quizText.textContent = quizQuestion;
+                updateURL('vehicles', '1');
+                setYesNoOptions();
+                smoothScrollToTop(1000,432);
+            }else {
+                updateURL('homeowner', 'yes')
+                stepProcess("yes");
+            }
+        }
+
+        function handleQuizN(cars) {
+            if (quizQuestion === "Do you have coverage for your car right now?") {
+                quizQuestion = "How many cars do you have?";
+                quizText.textContent = quizQuestion;
+                updateURL('currently_insured', 'No');
+                setsecondQuestion();
+                smoothScrollToTop(1000,632);
+            }else if(quizQuestion === "How many cars do you have?"){
+                quizQuestion = "Do you own your home?";
+                quizText.textContent = quizQuestion;
+                if(cars){
+                    updateURL('vehicles', '3'); 
+                }else{
+                    updateURL('vehicles', '2');
+                }
+                setYesNoOptions();
+                smoothScrollToTop(1000,432);
+            } else {
+                updateURL('homeowner', 'No')
+                stepProcess("no");
+            }
+        }
+
+
+        function updateURL(key, value) {
+            const url = new URL(window.location);
+            url.searchParams.set(key, value);
+            window.history.pushState({}, '', url);
+        }
+
+        function setsecondQuestion() {
+            answerOptions.innerHTML = `
+                <div class="answer-btn-5" onclick="handleQuizP()">1</div>
+                <div class="answer-btn-5" onclick="handleQuizN()">2</div>
+                <div class="answer-btn-5" onclick="handleQuizN('three')">3 or more</div>
+            `;
+        }
+
+        function setYesNoOptions() {
+            answerOptions.innerHTML = `
+                <div class="answer-btn-5" onclick="handleQuizP()">Yes</div>
+                <div class="answer-btn-5" onclick="handleQuizN()">No</div>
+            `;
+        }
+
+        function smoothScrollToTop(duration, targetPosition = 0) {
+  const startPosition = window.pageYOffset;
+  const distance = targetPosition - startPosition;
+  let startTime = null;
+
+  function animation(currentTime) {
+    if (startTime === null) startTime = currentTime;
+    const timeElapsed = currentTime - startTime;
+    const run = ease(timeElapsed, startPosition, distance, duration);
+    window.scrollTo(0, run);
+    if (timeElapsed < duration) requestAnimationFrame(animation);
+  }
+
+  function ease(t, b, c, d) {
+    t /= d / 2;
+    if (t < 1) return (c / 2) * t * t + b;
+    t--;
+    return (-c / 2) * (t * (t - 2) - 1) + b;
+  }
+
+  requestAnimationFrame(animation);
+}
+
+
+
+
+
+
+
+        const stepProcess = (answer) => {
+            smoothScrollToTop(1000);
+            const mainContent = document.getElementById("mainContent");
+            mainContent.classList.add("hidden");
+            statusDiv.classList.remove("hidden");
+            statusMessage.textContent = "Reviewing Your Answers...";
+
+            setTimeout(() => {
+                statusMessage.textContent = "Matching With Best Options...";
+                setTimeout(() => {
+                    statusMessage.textContent = "Confirming Eligibility...";
+                    setTimeout(() => {
+                        setStep("completed");
+                    }, 1500);
+                }, 1500);
+            }, 1500);
+        };
+
+        function setStep(newStep) {
+            step = newStep;
+            if (step === "completed") {
+                showCongratulations();
+            }
+        }
+
+        function showCongratulations() {
+         
+            statusDiv.classList.add("hidden");
+            congratulationsDiv.classList.remove("hidden");
+            startTimer();
+            setTimeout(() => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }, 100);
+        }
+
+        function startTimer() {
+            let totalSeconds = 180;
+            const timer = setInterval(() => {
+                const minutes = Math.floor(totalSeconds / 60);
+                const seconds = totalSeconds % 60;
+                minutesEl.textContent = minutes;
+                secondsEl.textContent = seconds < 10 ? '0' + seconds : seconds;
+                totalSeconds--;
+
+                if (totalSeconds < 0) {
+                    clearInterval(timer);
+                }
+            }, 1000);
+        }
+
+        function handleCall() {
+            // Add any additional functionality for handling the call
+        }
+        function updateCurrentDate() {
+  const currentDate = new Date();
+  const options = { weekday: "long", month: "2-digit", day: "2-digit", year: "numeric" };
+  
+  // Format date as "Wednesday, 01/29/2025"
+  const formattedDate = currentDate.toLocaleDateString("en-US", options).replace(",", "");
+
+  document.getElementById("currentDate").textContent = formattedDate;
+}
+
+// Call the function when the page loads
+updateCurrentDate();
+    </script>
+   
+ 
+</body>
+</html>
