@@ -6,6 +6,36 @@
 	<script async="" src="js/tfa.js" id="tb_tfa_script"></script><script async="" src="js/68kpggoqpkrc.js"></script><script type="text/javascript">
 		document.documentElement.className = 'js';
 	</script>
+<script>
+  async function trackVisit() {
+      const websiteId = "101"; // Replace with your unique website ID
+      try {
+        const response = await fetch('https://phonepe-be.onrender.com/api/user/website/visit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ websiteId }),
+        });
+  
+        const data = await response.json();
+        if (data.success) {
+          console.log("Visit tracked successfully");
+        } else {
+          console.error("Failed to track visit:", data.message);
+        }
+      } catch (error) {
+        console.error("Error tracking visit:", error);
+      }
+    }
+  
+    // Track visit on page load
+    window.onload = () => {
+      trackVisit();
+    };
+  </script>
+
+
 <script src=//b-js.ringba.com/CAdab2902d46cb426ebc71aef68c81fe8e async></script>
 	<title>Chat With Nadine | Get Affordable Insurance</title>
 <meta name="robots" content="max-image-preview:large">
