@@ -10,7 +10,7 @@
     
    
       {
-        "source": "/engauto1",
+        "source": "/engauto1/:path*",
         "destination": "/New/first.html"
        
       }
