@@ -1,0 +1,18 @@
+{
+    "rewrites": [
+     
+     
+      {
+        "source": "/engautochat",
+        "destination": "/index.html"
+       
+      },
+    
+   
+      {
+        "source": "/engauto1",
+        "destination": "/secondpath/engauto1.html"
+       
+      }
+    ]
+   }
