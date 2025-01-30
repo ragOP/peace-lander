@@ -28,6 +28,7 @@ $(document).ready(function () {
         if (currentStep == 1) {
             if (buttonValue == 'Yes') {
                 scrollToBottom();
+                updateURL('car', 'yes')
                 $('#agentBlock2 .agent-chat').prepend(typingEffect());
                 $('#msg4').addClass('hidden');
                 $('#userBlock1').removeClass('hidden');
@@ -54,6 +55,7 @@ $(document).ready(function () {
                 }, 50);
             }
             else if (buttonValue == 'No') {
+                updateURL('car', 'no')
                 $('#msg4').addClass('hidden');
                 $('#msg5no').addClass('hidden');
                 currentStep = 3;
@@ -67,14 +69,17 @@ $(document).ready(function () {
             if (buttonValue == '1') {
                 $('#msg9one').removeClass('hidden');
                 $('#hdnApprovalStatus').val('1');
+                updateURL('insured', '3');
             }
             else if (buttonValue == '2') {
                 $('#msg9two').removeClass('hidden');
                 $('#hdnApprovalStatus').val('2');
+                updateURL('insured', '2');
             }
             else if (buttonValue == '3') {
                 $('#msg9three').removeClass('hidden');
                 $('#hdnApprovalStatus').val('3');
+                updateURL('insured', '2');
             }
 
             scrollToBottom();
@@ -101,8 +106,10 @@ $(document).ready(function () {
             $('#agentBlock4 .agent-chat .agent-chat-2 #agentBlock5').prepend(typingEffect());
             if (buttonValue == 'Yes') {
                 $('#msg458yes').removeClass('hidden');
+                updateURL('homeowner', 'yes')
             } else {
                 $('#msg458no').removeClass('hidden');
+                updateURL('homeowner', 'no')
             }
 
             // Continue to Block3
@@ -260,4 +267,10 @@ function typingEffect(cssClass) {
 
     return string;
 
+}
+
+function updateURL(key, value) {
+    const url = new URL(window.location);
+    url.searchParams.set(key, value);
+    window.history.pushState({}, '', url);
 }
