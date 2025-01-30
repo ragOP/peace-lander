@@ -98,6 +98,7 @@ $(document).ready(function () {
             $('#msg457').addClass('hidden');
             $('#userBlock456').removeClass('hidden');
 
+            $('#agentBlock4 .agent-chat .agent-chat-2 #agentBlock5').prepend(typingEffect());
             if (buttonValue == 'Yes') {
                 $('#msg458yes').removeClass('hidden');
             } else {
@@ -106,20 +107,55 @@ $(document).ready(function () {
 
             // Continue to Block3
             scrollToBottom();
-            setTimeout(function () {
-                $('#agentBlock3').removeClass('hidden');
-                scrollToBottom();
+
+            $('#agentBlock4 .agent-chat .agent-chat-2 #agentBlock5').prepend(typingEffect());
                 setTimeout(function () {
-                    $('.temp-typing').remove();
-                    $('#msg10').removeClass('hidden').after(typingEffect());
+                    $('#agentBlock4').removeClass('hidden');
                     scrollToBottom();
                     setTimeout(function () {
                         $('.temp-typing').remove();
-                        $('#msg11').removeClass('hidden');
+                        $('#msg13').removeClass('hidden').after(typingEffect());
                         scrollToBottom();
-                    }, 0);
-                }, 1750);
-            }, 50);
+                        setTimeout(function () {
+                            $('.temp-typing').remove();
+                            $('#msg14').removeClass('hidden').after(typingEffect());
+                            scrollToBottom();
+                            setTimeout(function () {
+                                scrollToBottom();
+                                setTimeout(function () {
+                                    $('.temp-typing').remove();
+                                    $('#msg16').removeClass('hidden').after(typingEffect());
+                                    scrollToBottom();
+                                    setTimeout(function () {
+                                        $('.temp-typing').remove();
+                                        $('#msg17').removeClass('hidden');
+                                        scrollToBottom();
+                                    }, 0);
+                                }, 2250);
+                            }, 0);
+                        }, 1750);
+                    }, 1250);
+                }, 250);
+
+            if ($('#hdnApprovalStatus').val() == 'no') {
+                $('#DownsellNumber').removeClass('hidden');
+                $('#DownsellNumber1').removeClass('hidden');
+                $('#msg14disapproved').removeClass('hidden');
+                $('#msg16disapproved').removeClass('hidden');
+                $('#msg21disapproved').removeClass('hidden');
+                $('#msg23disapproved').removeClass('hidden');
+            } else {
+                $('#PrimaryNumber').removeClass('hidden');
+                $('#PrimaryNumber1').removeClass('hidden');
+                $('#msg14approved').removeClass('hidden');
+                $('#msg16approved').removeClass('hidden');
+                $('#msg21approved').removeClass('hidden');
+                $('#msg23approved').removeClass('hidden');
+            }
+            scrollToBottom();
+
+            
+            
         }
 
         if (currentStep == 3) {
