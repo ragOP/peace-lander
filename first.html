@@ -185,13 +185,13 @@ It's fast, it's easy, and there are no obligations or hidden fees. <br>
                 quizText.textContent = quizQuestion;
                 updateURL('insured', '3')
                 setsecondQuestion();
-                smoothScrollToTop(1000,232);
+                smoothScrollToTop(1000,632);
             } else if(quizQuestion === "2. How many cars do you have?"){
                 quizQuestion = "3. Do you own your home?";
                 quizText.textContent = quizQuestion;
                 updateURL('vehicles', '1');
                 setYesNoOptions();
-                smoothScrollToTop(1000,232);
+                smoothScrollToTop(1000,632);
             }else {
                 updateURL('homeowner', 'yes')
                 stepProcess("yes");
@@ -214,7 +214,7 @@ It's fast, it's easy, and there are no obligations or hidden fees. <br>
                     updateURL('vehicles', '2');
                 }
                 setYesNoOptions();
-                smoothScrollToTop(1000,432);
+                smoothScrollToTop(1000,632);
             } else {
                 updateURL('homeowner', 'No')
                 stepProcess("no");
