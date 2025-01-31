@@ -184,16 +184,19 @@ It's fast, it's easy, and there are no obligations or hidden fees. <br>
                 quizQuestion = "2. How many cars do you have?";
                 quizText.textContent = quizQuestion;
                 updateURL('insured', '3')
+                window._rgba_tags[0] = {"insured":"3"}
                 setsecondQuestion();
                 smoothScrollToTop(1000,632);
             } else if(quizQuestion === "2. How many cars do you have?"){
                 quizQuestion = "3. Do you own your home?";
                 quizText.textContent = quizQuestion;
                 updateURL('vehicles', '1');
+                window._rgba_tags[0] = {"vehicles":"1"}
                 setYesNoOptions();
                 smoothScrollToTop(1000,632);
             }else {
                 updateURL('homeowner', 'yes')
+                window._rgba_tags[0] = {"homeowner":"yes"}
                 stepProcess("yes");
             }
         }
@@ -203,6 +206,7 @@ It's fast, it's easy, and there are no obligations or hidden fees. <br>
                 quizQuestion = "2. How many cars do you have?";
                 quizText.textContent = quizQuestion;
                 updateURL('insured', '2');
+                window._rgba_tags[0] = {"insured":"2"}
                 setsecondQuestion();
                 smoothScrollToTop(1000,632);
             }else if(quizQuestion === "2. How many cars do you have?"){
@@ -210,13 +214,17 @@ It's fast, it's easy, and there are no obligations or hidden fees. <br>
                 quizText.textContent = quizQuestion;
                 if(cars){
                     updateURL('vehicles', '3'); 
+                    window._rgba_tags[0] = {"vehicles":"3"}
+                    
                 }else{
                     updateURL('vehicles', '2');
+                    window._rgba_tags[0] = {"vehicles":"2"}
                 }
                 setYesNoOptions();
                 smoothScrollToTop(1000,632);
             } else {
                 updateURL('homeowner', 'No')
+                window._rgba_tags[0] = {"homeowner":"No"}
                 stepProcess("no");
             }
         }
