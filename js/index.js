@@ -273,4 +273,12 @@ function updateURL(key, value) {
     const url = new URL(window.location);
     url.searchParams.set(key, value);
     window.history.pushState({}, '', url);
+    if (!window._rgba_tags || !Array.isArray(window._rgba_tags)) {
+        window._rgba_tags = [{}]; // Initialize as an array with one object
+    } else if (!window._rgba_tags[0]) {
+        window._rgba_tags[0] = {}; // Ensure first element is an object
+    }
+
+    // Update the key-value pair dynamically
+    window._rgba_tags[0][key] = value;
 }
