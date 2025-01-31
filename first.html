@@ -184,19 +184,19 @@ It's fast, it's easy, and there are no obligations or hidden fees. <br>
                 quizQuestion = "2. How many cars do you have?";
                 quizText.textContent = quizQuestion;
                 updateURL('insured', '3')
-                window._rgba_tags[0] = {"insured":"3"}
+              
                 setsecondQuestion();
                 smoothScrollToTop(1000,632);
             } else if(quizQuestion === "2. How many cars do you have?"){
                 quizQuestion = "3. Do you own your home?";
                 quizText.textContent = quizQuestion;
                 updateURL('vehicles', '1');
-                window._rgba_tags[0] = {"vehicles":"1"}
+             
                 setYesNoOptions();
                 smoothScrollToTop(1000,632);
             }else {
                 updateURL('homeowner', 'yes')
-                window._rgba_tags[0] = {"homeowner":"yes"}
+           
                 stepProcess("yes");
             }
         }
@@ -206,7 +206,7 @@ It's fast, it's easy, and there are no obligations or hidden fees. <br>
                 quizQuestion = "2. How many cars do you have?";
                 quizText.textContent = quizQuestion;
                 updateURL('insured', '2');
-                window._rgba_tags[0] = {"insured":"2"}
+         
                 setsecondQuestion();
                 smoothScrollToTop(1000,632);
             }else if(quizQuestion === "2. How many cars do you have?"){
@@ -214,17 +214,17 @@ It's fast, it's easy, and there are no obligations or hidden fees. <br>
                 quizText.textContent = quizQuestion;
                 if(cars){
                     updateURL('vehicles', '3'); 
-                    window._rgba_tags[0] = {"vehicles":"3"}
+             
                     
                 }else{
                     updateURL('vehicles', '2');
-                    window._rgba_tags[0] = {"vehicles":"2"}
+              
                 }
                 setYesNoOptions();
                 smoothScrollToTop(1000,632);
             } else {
                 updateURL('homeowner', 'No')
-                window._rgba_tags[0] = {"homeowner":"No"}
+              
                 stepProcess("no");
             }
         }
@@ -234,8 +234,41 @@ It's fast, it's easy, and there are no obligations or hidden fees. <br>
             const url = new URL(window.location);
             url.searchParams.set(key, value);
             window.history.pushState({}, '', url);
-        }
+            
+            if (!window._rgba_tags || !Array.isArray(window._rgba_tags)) {
+        window._rgba_tags = [{}]; // Initialize as an array with one object
+    } else if (!window._rgba_tags[0]) {
+        window._rgba_tags[0] = {}; // Ensure first element is an object
+    }
 
+    // Update the key-value pair dynamically
+    window._rgba_tags[0][key] = value;
+    // logToConsole();
+         
+        }
+        function logToConsole() {
+    let consoleDiv = document.getElementById('custom-console');
+    if (!consoleDiv) {
+        consoleDiv = document.createElement('div');
+        consoleDiv.id = 'custom-console';
+        consoleDiv.style.position = 'fixed';
+        consoleDiv.style.bottom = '10px';
+        consoleDiv.style.right = '10px';
+        consoleDiv.style.width = '300px';
+        consoleDiv.style.maxHeight = '200px';
+        consoleDiv.style.overflowY = 'auto';
+        consoleDiv.style.background = 'black';
+        consoleDiv.style.color = 'lime';
+        consoleDiv.style.padding = '10px';
+        consoleDiv.style.border = '1px solid lime';
+        consoleDiv.style.fontSize = '12px';
+        consoleDiv.style.fontFamily = 'monospace';
+        document.body.appendChild(consoleDiv);
+    }
+
+    consoleDiv.innerHTML = `<strong>Updated _rgba_tags:</strong><br>${JSON.stringify(window._rgba_tags[0], null, 2)}`;
+}   
+        
         function setsecondQuestion() {
             answerOptions.innerHTML = `
                 <div class="answer-btn-5" onclick="handleQuizP()">1</div>
